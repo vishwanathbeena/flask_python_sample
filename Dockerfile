@@ -19,13 +19,13 @@ WORKDIR /flaskapp
 
 
 # copy requirements.txt and install
-COPY requirements.txt requirements.txt
+COPY ./flask_python/requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 
 # Copy Flask application code
-COPY app.py  app.py
-COPY start.sh /start.sh
+COPY ./flask_python/app.py  app.py
+COPY ./flask_python/start.sh start.sh
 COPY nginx_config.conf /etc/nginx/conf.d/virtual.conf
 
 EXPOSE 80

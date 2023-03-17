@@ -16,7 +16,9 @@ pipeline{
         }
         stage('Build'){
             steps{
-                sh 'aws s3 cp ./flask_python_sample s3://vishwa-jupudi-sample-bucket/flask_python_sample/ --recursive'
+                def workspace = pwd()
+
+                sh 'aws s3 cp ./* s3://vishwa-jupudi-sample-bucket/flask_python_sample/ --recursive'
             }
         }
 
